@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="validate.js"></script>
+    <title>Heart attack</title>
+</head>
+<body>
+
+    <div class="container" >
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{url_for('index')}}"><b>DISEASE PREDICTOR</b></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Services
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="{{url_for('diabetes')}}">Diabetes Prediction</a></li>
+                  <li><a class="dropdown-item" href="{{url_for('heartattack')}}">Heartattack Prediction</a></li>
+                  <li><a class="dropdown-item" href="{{url_for('kidneyd')}}">Kidney Prediction</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Instructions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+        <center><h2>Heartattack Prediction</h2></center>
+        <form action="{{url_for('heartattack_prediction')}}" method="POST">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Age</label>
+                <input type="number" step="any" class="form-control"  placeholder="Enter Age" name="age">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Education</label>
+                <select id="inputState" class="form-control" name="education">
+                    <option selected value="1">Below College</option>
+                    <option value="2">College</option>
+                    <option value="3">Bachlor</option>
+                    <option value="4">Master</option>
+                  </select>
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Current Smoker</label>
+                  <select id="inputState" class="form-control" name="currentSmoker">
+                    <option selected value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Cigarates per day</label>
+                  <input type="number" step="any" class="form-control"  placeholder="Enter Cigarates per day" name="cigsPerDay">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4">BPMEDS</label>
+                  <select id="inputState" class="form-control" name="BPMeds">
+                    <option selected value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Prevalent Stroke</label>
+                  <select id="inputState" class="form-control" name="prevalentStroke">
+                    <option selected value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+              <div class="form-group col-md-4">
+                <label for="inputPassword4">Prevalent HYP</label>
+                <select id="inputState" class="form-control" name="prevalentHyp">
+                    <option selected value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+              </div>
+            </div>
+          <div class="form-row">
+		        <div class="form-group col-md-4">
+                <label for="inputPassword4">Diabetes</label>
+                <select id="inputState" class="form-control" name="diabetes">
+                    <option selected value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputEmail4">Total Alchol</label>
+                <input type="number" step="any" class="form-control"  placeholder="Enter Total Alchol" name="totChol">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputPassword4">SYSBP</label>
+                <input type="number" step="any" class="form-control"  placeholder="Enter SYSBP" name="sysBP">
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">DIABP</label>
+              <input type="number" step="any" class="form-control"  placeholder="Enter DIABP" name="diaBP">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">BMI</label>
+              <input type="number" step="any" class="form-control"  placeholder="Enter BMI" name="BMI">
+            </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Heart Rate</label>
+            <input type="number" step="any" class="form-control"  placeholder="Enter Heart Rate" name="heartRate">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Glucose</label>
+            <input type="number" step="any" class="form-control"  placeholder="Enter Glucose" name="glucose">
+          </div>
+      </div>
+            <button type="submit" class="btn btn-primary">Predict Result</button>
+            <button type="reset" class="btn btn-danger">Reset Fields</button>
+          </form>
+
+          <div class="alert alert-success" role="alert" style="margin-top: 20px;">
+            {{value}}
+          </div>
+          
+    </div>
+    
+</body>
+</html>

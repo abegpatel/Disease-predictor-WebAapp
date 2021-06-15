@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="validate.js"></script>
+    <title>Kidney Prediction</title>
+</head>
+<body>
+
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{url_for('index')}}"><b>DISEASE PREDICTOR</b></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Services
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="{{url_for('diabetes')}}">Diabetes Prediction</a></li>
+                  <li><a class="dropdown-item" href="{{url_for('heartattack')}}">Heartattack Prediction</a></li>
+                  <li><a class="dropdown-item" href="{{url_for('kidneyd')}}">Kidney Prediction</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Instructions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+        <center><h2>Kidney Prediction</h2></center>
+        <form action="{{url_for('Kidneyd_prediction')}}" method="POST">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">SG</label>
+                <input type="number" step="any" class="form-control"  placeholder="Enter SG" name="sg" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">RBC</label>
+                <select id="inputState" class="form-control" name="rbc">
+                    <option selected value="1">Normal</option>
+                    <option value="0">Abnormal</option>
+                  </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">PC</label>
+              <select id="inputState" class="form-control" name="pc">
+                <option selected value="1">Normal</option>
+                <option value="0">Abnormal</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">SOD</label>
+              <input type="number" step="any" class="form-control" placeholder="Enter SOD" name="sod" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">HEMO</label>
+                <input type="number" step="any" class="form-control" placeholder="Enter HEMO" name="hemo" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputState">PCV</label>
+                <input type="number" step="any" class="form-control" placeholder="Enter PCV" name="pcv" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict Result</button>
+            <button type="reset" class="btn btn-danger">Reset Fields</button>
+          </form>
+
+          <div class="alert alert-success" role="alert" style="margin-top: 20px;">
+            {{value}}
+          </div>
+          
+    </div>
+    
+</body>
+</html>
